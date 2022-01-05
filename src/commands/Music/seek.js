@@ -6,7 +6,7 @@ module.exports = {
   	name: "seek",
   	aliases: [],
   	category: "Music",
-  	description: "Seek the currently playing song",
+  	description: "Procure a música que está tocando no momento",
   	args: true,
     usage: "<10s || 10m || 10h>",
     permission: [],
@@ -21,7 +21,7 @@ module.exports = {
         if (!player.queue.current) {
             let thing = new MessageEmbed()
                 .setColor("RED")
-                .setDescription("There is no music playing.");
+                .setDescription("Não há música tocando.");
             return message.reply({embeds: [thing]});
         }
 
@@ -38,14 +38,14 @@ module.exports = {
             if (time > position) {
                 player.seek(time);
                 let thing = new MessageEmbed()
-                    .setDescription(`${emojiforward} **Forward**\n[${song.title}](${song.uri})\n\`${convertTime(time)} / ${convertTime(duration)}\``)
+                    .setDescription(`${emojiforward} **Avançar**\n[${song.title}](${song.uri})\n\`${convertTime(time)} / ${convertTime(duration)}\``)
                     .setColor(client.embedColor)
                     .setTimestamp()
                 return message.reply({embeds: [thing]});
             } else {
                 player.seek(time);
                 let thing = new MessageEmbed()
-                    .setDescription(`${emojirewind} **Rewind**\n[${song.title}](${song.uri})\n\`${convertTime(time)} / ${convertTime(duration)}\``)
+                    .setDescription(`${emojirewind} **Voltar**\n[${song.title}](${song.uri})\n\`${convertTime(time)} / ${convertTime(duration)}\``)
                     .setColor(client.embedColor)
                     .setTimestamp()
           return message.reply({embeds: [thing]});
@@ -53,7 +53,7 @@ module.exports = {
         } else {
             let thing = new MessageEmbed()
                 .setColor("RED")
-                .setDescription(`Seek duration exceeds Song duration.\nSong duration: \`${convertTime(duration)}\``);
+                .setDescription(`A duração da buscada excede a duração da música. \n Duração da música: \`${convertTime(duration)}\``);
             return message.reply({embeds: [thing]});
         }
 	
