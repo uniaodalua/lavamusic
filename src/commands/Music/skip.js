@@ -4,7 +4,7 @@ module.exports = {
 	name: "skip",
 	aliases: ["s"],
 	category: "Music",
-	description: "Skip the currently playing song",
+	description: "Pular a música que está tocando",
 	args: false,
   usage: "",
   permission: [],
@@ -19,7 +19,7 @@ execute: async (message, args, client, prefix) => {
         if (!player.queue.current) {
             let thing = new MessageEmbed()
                 .setColor("RED")
-                .setDescription("There is no music playing.");
+                .setDescription("Não há música tocando.");
          return message.reply({embeds: [thing]});
         }
         const song = player.queue.current;
@@ -29,7 +29,7 @@ execute: async (message, args, client, prefix) => {
 		const emojiskip = message.client.emoji.skip;
 
 		let thing = new MessageEmbed()
-			.setDescription(`${emojiskip} **Skipped**\n[${song.title}](${song.uri})`)
+			.setDescription(`${emojiskip} **pular**\n[${song.title}](${song.uri})`)
 			.setColor(message.client.embedColor)
 			.setTimestamp()
 		return message.reply({embeds: [thing]}).then(msg => { setTimeout(() => {msg.delete()}, 3000);
