@@ -3,8 +3,8 @@ const { MessageEmbed, MessageButton, MessageActionRow } = require("discord.js");
 module.exports = {
     name: "filters",
     category: "Music",
-    aliases: [ "eq", "equalizer" ],
-    description: "Set EqualizerBand",
+    aliases: [ "eq", "equalizador" ],
+    description: "Definir EqualizerBand",
     args: false,
     usage: "",
     permission: [],
@@ -18,13 +18,13 @@ module.exports = {
         if (!player.queue.current) {
             let thing = new MessageEmbed()
                 .setColor("RED")
-                .setDescription("There is no music playing.");
+                .setDescription("Não há música tocando.");
             return message.reply({embeds: [thing]});
         }
         const emojiequalizer = message.client.emoji.filter;
         const embed = new MessageEmbed()
           .setColor(client.embedColor)
-          .setDescription(`Choose what filter you want in tha button`)
+          .setDescription(`Escolha o filtro que deseja no botão`)
         
         const but = new MessageButton().setCustomId("clear_but").setLabel("Clear").setStyle("DANGER");
         const but2 = new MessageButton().setCustomId("bass_but").setLabel("Bass").setStyle("PRIMARY");
@@ -49,14 +49,14 @@ module.exports = {
         });
         collector.on("end", async () => {
             if(!m) return;
-           await m.edit({ embeds: [embed1.setDescription(`Time is Out type again ${prefix}filters`)]});
+           await m.edit({ embeds: [embed1.setDescription(`Tempo esgotado digite novamente ${prefix}filters`)]});
         });
         collector.on("collect", async (b) => {
          if(!b.replied) await b.deferUpdate({ ephemeral: true });
          if(b.customId === "clear_but") {
             await player.clearEQ();
             if(m) await m.edit({embeds: [embed], components: [row, row2]});
-            return await b.editReply({embeds: [embed1.setDescription(`${emojiequalizer} Equalizer mode is OFF`)]});
+            return await b.editReply({embeds: [embed1.setDescription(`${emojiequalizer} Equalizador está DESLIGADO`)]});
          } else if(b.customId === "bass_but") {
             var bands = [
                 { band: 0, gain: 0.6 },
@@ -77,7 +77,7 @@ module.exports = {
             ];
             await player.setEQ(...bands);
             if(m) await m.edit({embeds: [embed], components: [row, row2]});
-            return await b.editReply({embeds: [embed1.setDescription(`${emojiequalizer} Bass mode is ON`)]});
+            return await b.editReply({embeds: [embed1.setDescription(`${emojiequalizer} Bass LIGADO`)]});
          } else if(b.customId === "party_but") {
             var bands = [
                 { band: 0, gain: -1.16 },
@@ -92,7 +92,7 @@ module.exports = {
             ];
              await player.setEQ(...bands);
             if(m) await m.edit({embeds: [embed], components: [row, row2]});
-            return await b.editReply({embeds: [embed1.setDescription(`${emojiequalizer} Party mode is ON`)]});
+            return await b.editReply({embeds: [embed1.setDescription(`${emojiequalizer} O modo festa está LIGADO`)]});
          } else if(b.customId === "radio_but") {
             var bands = [
                 { band: 0, gain: 0.65 },
@@ -113,7 +113,7 @@ module.exports = {
             ];
             await player.setEQ(...bands);
            if(m) await m.edit({embeds: [embed], components: [row, row2]});
-           return await b.editReply({embeds: [embed1.setDescription(`${emojiequalizer} Radio mode is ON`)]});
+           return await b.editReply({embeds: [embed1.setDescription(`${emojiequalizer} Modo Radio LIGADO`)]});
          } else if(b.customId === "pop_but") {
             var bands = [
                 { band: 0, gain: -0.25 },
@@ -134,7 +134,7 @@ module.exports = {
             ];
             await player.setEQ(...bands);
            if(m) await m.edit({embeds: [embed], components: [row, row2]});
-           return await b.editReply({embeds: [embed1.setDescription(`${emojiequalizer} Pop mode is ON`)]});
+           return await b.editReply({embeds: [embed1.setDescription(`${emojiequalizer} Modo Pop LIGADO`)]});
          } else if(b.customId === "trab_but") {
             var bands = [
                 { band: 0, gain: 0.6 },
@@ -155,14 +155,14 @@ module.exports = {
             ];
             await player.setEQ(...bands);
            if(m) await m.edit({embeds: [embed], components: [row, row2]});
-           return await b.editReply({embeds: [embed1.setDescription(`${emojiequalizer} Trablebass mode is ON`)]});
+           return await b.editReply({embeds: [embed1.setDescription(`${emojiequalizer} Modo Trablebass está LIGADO`)]});
          } else if(b.customId === "boost_but") {
             var bands = new Array(7).fill(null).map((_, i) => (
                 { band: i, gain: 0.25 }
             ));
             await player.setEQ(...bands);
            if(m) await m.edit({embeds: [embed], components: [row, row2]});
-           return await b.editReply({embeds: [embed1.setDescription(`${emojiequalizer} Bassboost mode is ON`)]}); 
+           return await b.editReply({embeds: [embed1.setDescription(`${emojiequalizer} Bassboost LIGADO`)]}); 
          } else if(b.customId === "soft_but") {
             var bands =  [
                 { band: 0, gain: 0 },
@@ -183,7 +183,7 @@ module.exports = {
             ];
             await player.setEQ(...bands);
            if(m) await m.edit({embeds: [embed], components: [row, row2]});
-           return await b.editReply({embeds: [embed1.setDescription(`${emojiequalizer} Soft mode is ON`)]});
+           return await b.editReply({embeds: [embed1.setDescription(`${emojiequalizer} Modo suave está LIGADO`)]});
          } else if(b.customId === "cust_but") {
             var bands = [
                 { band: 0, gain: args[1] },
@@ -203,7 +203,7 @@ module.exports = {
             ];
             await player.setEQ(...bands);
            if(m) await m.edit({embeds: [embed], components: [row, row2]});
-           return await b.editReply({embeds: [embed1.setDescription(`${emojiequalizer} Custom mode is ON`)]}); 
+           return await b.editReply({embeds: [embed1.setDescription(`${emojiequalizer} Modo personalizado está LIGADO`)]}); 
             }
         });
     }
