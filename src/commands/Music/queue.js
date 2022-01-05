@@ -7,7 +7,7 @@ module.exports = {
     name: "queue",
     category: "Music",
     aliases: ["q"],
-    description: "Show the music queue and now playing.",
+    description: "Mostra a fila de músicas tocando agora.",
     args: false,
     usage: "",
     permission: [],
@@ -25,7 +25,7 @@ module.exports = {
             if(player.queue.length === "0" || !player.queue.length) {
                 const embed = new MessageEmbed()
                 .setColor(client.embedColor)
-                .setDescription(`Now playing [${player.queue.current.title}](${player.queue.current.uri}) • \`[ ${pms(player.position)} / ${pms(player.queue.current.duration)} ]\` • [${player.queue.current.requester}]`)
+                .setDescription(`Tocando agora [${player.queue.current.title}](${player.queue.current.uri}) • \`[ ${pms(player.position)} / ${pms(player.queue.current.duration)} ]\` • [${player.queue.current.requester}]`)
 
                 await message.channel.send({
                     embeds: [embed]
@@ -40,7 +40,7 @@ module.exports = {
                 if(player.queue.size < 11) {
                     const embed = new MessageEmbed()
                     .setColor(client.embedColor)
-                    .setDescription(`**Now playing**\n[${player.queue.current.title}](${player.queue.current.uri}) • \`[ ${pms(player.position)} / ${pms(player.queue.current.duration)} ]\` • [${player.queue.current.requester}]\n\n**Queued Songs**\n${pages[page]}`)
+                    .setDescription(`**Tocando agora**\n[${player.queue.current.title}](${player.queue.current.uri}) • \`[ ${pms(player.position)} / ${pms(player.queue.current.duration)} ]\` • [${player.queue.current.requester}]\n\n**Queued Songs**\n${pages[page]}`)
                     .setTimestamp()
                     .setFooter(`Page ${page + 1}/${pages.length}`, message.author.displayAvatarURL({ dynamic: true }))
                     .setThumbnail(player.queue.current.thumbnail)
@@ -52,7 +52,7 @@ module.exports = {
                 } else {
                     const embed2 = new MessageEmbed()
                     .setColor(client.embedColor)
-                    .setDescription(`**Now playing**\n[${player.queue.current.title}](${player.queue.current.uri}) • \`[ ${pms(player.position)} / ${pms(player.queue.current.duration)} ]\` • [${player.queue.current.requester}]\n\n**Queued Songs**\n${pages[page]}`)
+                    .setDescription(`**Tocando agora**\n[${player.queue.current.title}](${player.queue.current.uri}) • \`[ ${pms(player.position)} / ${pms(player.queue.current.duration)} ]\` • [${player.queue.current.requester}]\n\n**Queued Songs**\n${pages[page]}`)
                     .setTimestamp()
                     .setFooter(`Page ${page + 1}/${pages.length}`, message.author.displayAvatarURL({ dynamic: true }))
                     .setThumbnail(player.queue.current.thumbnail)
@@ -88,7 +88,7 @@ module.exports = {
                             else {
                                 b.reply({
                                     ephemeral: true,
-                                    content: `Only **${message.author.tag}** can use this button, if you want then you've to run the command again.`
+                                    content: `Só você **${message.author.tag}** pode usar este botão, se você quiser, terá que executar o comando novamente.`
                                 });
                                 return false;
                             };
@@ -104,7 +104,7 @@ module.exports = {
 
                             const embed3 = new MessageEmbed()
                             .setColor(client.embedColor)
-                            .setDescription(`**Now playing**\n[${player.queue.current.title}](${player.queue.current.uri}) • \`[ ${pms(player.position)} / ${pms(player.queue.current.duration)} ]\` • [${player.queue.current.requester}]\n\n**Queued Songs**\n${pages[page]}`)
+                            .setDescription(`**Tocando agora**\n[${player.queue.current.title}](${player.queue.current.uri}) • \`[ ${pms(player.position)} / ${pms(player.queue.current.duration)} ]\` • [${player.queue.current.requester}]\n\n**Queued Songs**\n${pages[page]}`)
                             .setTimestamp()
                             .setFooter({text: `Page ${page + 1}/${pages.length}`, iconURL: message.author.displayAvatarURL({ dynamic: true })})
                             .setThumbnail(player.queue.current.thumbnail)
@@ -120,11 +120,11 @@ module.exports = {
 
                             const embed4 = new MessageEmbed()
                             .setColor(client.embedColor)
-                            .setDescription(`**Now playing**\n[${player.queue.current.title}](${player.queue.current.uri}) • \`[ ${pms(player.position)} / ${pms(player.queue.current.duration)} ]\` • [${player.queue.current.requester}]\n\n**Queued Songs**\n${pages[page]}`)
+                            .setDescription(`**Tocando agora**\n[${player.queue.current.title}](${player.queue.current.uri}) • \`[ ${pms(player.position)} / ${pms(player.queue.current.duration)} ]\` • [${player.queue.current.requester}]\n\n**Queued Songs**\n${pages[page]}`)
                             .setTimestamp()
                             .setFooter({text: `Page ${page + 1}/${pages.length}`, iconURL: message.author.displayAvatarURL({ dynamic: true })})
                             .setThumbnail(player.queue.current.thumbnail)
-                            .setTitle(`${message.guild.name} Queue`)
+                            .setTitle(`${message.guild.name} Fila`)
 
                             await msg.edit({
                                 embeds: [embed4],
