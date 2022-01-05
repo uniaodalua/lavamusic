@@ -4,7 +4,7 @@ module.exports = {
   name: "join",
   aliases: ["j"],
   category: "Music",
-  description: "Join voice channel",
+  description: "Entrar no canal de voz",
   args: false,
   usage: "",
   permission: [],
@@ -37,7 +37,7 @@ module.exports = {
 
       let thing = new MessageEmbed()
         .setColor(client.embedColor)
-        .setDescription(`${emojiJoin} **Join the voice channel**\nJoined <#${channel.id}> and bound to <#${message.channel.id}>`)
+        .setDescription(`${emojiJoin} **Junte-se ao canal de voz **\nJoined <#${channel.id}> vinculado a <#${message.channel.id}>`)
       return message.reply({ embeds: [thing] });
 
     };
