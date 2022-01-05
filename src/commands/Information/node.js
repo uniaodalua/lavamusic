@@ -2,8 +2,8 @@ const { MessageEmbed } = require("discord.js");
 
 module.exports = {
     name: "node",
-    category: "Information",
-    description: "Check node information",
+    category: "informação",
+    description: "Verifique as informações do node",
     args: false,
     usage: "",
     permission: [],
