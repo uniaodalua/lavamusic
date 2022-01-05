@@ -2,9 +2,9 @@ const { MessageEmbed, MessageActionRow, MessageButton } = require("discord.js");
 
 module.exports = {
     name: "help",
-    category: "Information",
+    category: "informação",
     aliases: [ "h" ],
-    description: "Return all commands, or one specific command",
+    description: "Retorna todos os comandos ou um comando específico",
     args: false,
     usage: "",
     permission: [],
