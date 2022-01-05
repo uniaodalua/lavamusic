@@ -6,9 +6,9 @@ module.exports = {
     name: "play",
     category: "Music",
     aliases: ["p"],
-    description: "Plays audio from YouTube or Soundcloud",
+    description: "Toca áudio do YouTube ou Soundcloud",
     args: true,
-    usage: "<YouTube URL | Video Name | Spotify URL>",
+    usage: "<YouTube URL | Nome do Video ou Musica | Spotify URL>",
     permission: [],
     owner: false,
     player: false,
@@ -53,7 +53,7 @@ module.exports = {
          const thing = new MessageEmbed()
              .setColor(client.embedColor)
              .setTimestamp()
-             .setDescription(`${emojiplaylist} **Added Playlist to queue** [${Searched.playlistInfo.name}](${SearchString}) - [\`${Searched.tracks.length}\`]`)
+             .setDescription(`${emojiplaylist} **Lista de reprodução adicionada à fila** [${Searched.playlistInfo.name}](${SearchString}) - [\`${Searched.tracks.length}\`]`)
           return message.channel.send({embeds: [thing]});
      } else if (Searched.loadType.startsWith("TRACK")) {
           player.queue.add(TrackUtils.build(Searched.tracks[0], message.author));
@@ -62,7 +62,7 @@ module.exports = {
             const thing = new MessageEmbed()
              .setColor(client.embedColor)
              .setTimestamp()
-             .setDescription(`${emojiplaylist} **Added to queue** - [${Searched.tracks[0].info.title}](${Searched.tracks[0].info.uri})`)
+             .setDescription(`${emojiplaylist} **Adicionado à fila** - [${Searched.tracks[0].info.title}](${Searched.tracks[0].info.uri})`)
          return message.channel.send({embeds: [thing]});
            } else {
          return message.channel.send({ embeds: [new MessageEmbed().setColor(client.embedColor).setTimestamp().setDescription('there were no results found.')]});
@@ -82,7 +82,7 @@ module.exports = {
          const thing = new MessageEmbed()
              .setColor(client.embedColor)
              .setTimestamp()
-             .setDescription(`${emojiplaylist} Playlist added to queue - [${Searched.playlist.name}](${SearchString}) - \`${Searched.tracks.length}\` songs - \`[${convertTime(Searched.playlist.duration)}]\``)
+             .setDescription(`${emojiplaylist} Playlist adicionada à fila - [${Searched.playlist.name}](${SearchString}) - \`${Searched.tracks.length}\` songs - \`[${convertTime(Searched.playlist.duration)}]\``)
            return message.channel.send({embeds: [thing]});
         } else {
           player.queue.add(Searched.tracks[0], message.author);
@@ -91,7 +91,7 @@ module.exports = {
         const thing = new MessageEmbed()
              .setColor(client.embedColor)
              .setTimestamp()
-             .setDescription(`${emojiaddsong} **Added Song to queue**\n[${Searched.tracks[0].title}](${Searched.tracks[0].uri}) - \`[${convertTime(Searched.tracks[0].duration)}]\``);
+             .setDescription(`${emojiaddsong} **Adicionada música à fila**\n[${Searched.tracks[0].title}](${Searched.tracks[0].uri}) - \`[${convertTime(Searched.tracks[0].duration)}]\``);
            return message.channel.send({embeds: [thing]});
         }
       }
