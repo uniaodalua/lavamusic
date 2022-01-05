@@ -6,9 +6,9 @@ const si = require('systeminformation');
 
 module.exports = {
     name: "status",
-    category: "Information",
+    category: "informação",
     aliases: [ "stats" ],
-    description: "Show status bot",
+    description: "Mostrar status bot",
     args: false,
     usage: "",
     permission: [],
