@@ -4,7 +4,7 @@ const { post } = require("node-superfetch");
 module.exports = {
     name: "eval",
     category: "Owner",
-    description: "Eval Code",
+    description: "Código de Avaliação",
     args: false,
     usage: "<string>",
     permission: [],
@@ -16,11 +16,11 @@ module.exports = {
 
         try {
             const code = args.join(" ");
-            if (!code) return message.channel.send("Please include the code.");
+            if (!code) return message.channel.send("Por favor inclua o código.");
             let evaled;
 
             if (code.includes(`SECRET`) || code.includes(`TOKEN`) || code.includes("process.env")) {
-                evaled = "No, shut up, what will you do it with the token?";
+                evaled = "O que você fará com o token?";
             } else {
                 evaled = await eval(code);
             }
