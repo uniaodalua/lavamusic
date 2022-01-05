@@ -3,9 +3,9 @@ const { MessageEmbed } = require("discord.js");
 module.exports = {
   	name: "remove",
     category: "Music",
-  	description: "Remove song from the queue",
+  	description: "Remover música da fila",
 	  args: true,
-    usage: "<Number of song in queue>",
+    usage: "<Número de músicas na fila>",
     permission: [],
     owner: false,
     player: true,
@@ -18,7 +18,7 @@ module.exports = {
         if (!player.queue.current) {
             let thing = new MessageEmbed()
                 .setColor("RED")
-                .setDescription("There is no music playing.");
+                .setDescription("Não há música tocando.");
             return message.reply({embeds: [thing]});
         }
 
@@ -27,7 +27,7 @@ module.exports = {
         const number = (position + 1);
          let thing = new MessageEmbed()
             .setColor("RED")
-            .setDescription(`No songs at number ${number}.\nTotal Songs: ${player.queue.size}`);
+            .setDescription(`Sem músicas em número ${number}.\nTotal Songs: ${player.queue.size}`);
             return message.reply({embeds: [thing]});
         }
 
@@ -39,7 +39,7 @@ module.exports = {
 		let thing = new MessageEmbed()
 			.setColor(client.embedColor)
 			.setTimestamp()
-			.setDescription(`${emojieject} Removed\n[${song.title}](${song.uri})`)
+			.setDescription(`${emojieject} Removida\n[${song.title}](${song.uri})`)
 		  return message.reply({embeds: [thing]});
 	
     }
