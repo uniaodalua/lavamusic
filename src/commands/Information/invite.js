@@ -2,9 +2,9 @@ const { MessageEmbed, MessageActionRow, MessageButton } = require("discord.js");
 
 module.exports = {
     name: "invite",
-    category: "Information",
+    category: "informação",
     aliases: [ "addme" ],
-    description: "invite LavaMusic",
+    description: "convide o Bot LuxMusic",
     args: false,
     usage: "",
     permission: [],
@@ -15,24 +15,18 @@ module.exports = {
     const row = new MessageActionRow()
 			.addComponents(
     new MessageButton()
-    .setLabel("Invite")
+    .setLabel("suporte")
     .setStyle("LINK")
-    .setURL(`https://discord.com/api/oauth2/authorize?client_id=${client.user.id}&permissions=36768832&scope=applications.commands%20bot`),
-    new MessageButton()
-    .setLabel("GitHub")
-    .setStyle("LINK")
-    .setURL("https://github.com/brblacky/lavamusic"),
-    new MessageButton()
-    .setLabel("Support")
-    .setStyle("LINK")
-    .setURL("https://discord.gg/gfcv94hDhv")
+    .setURL("https://discord.io/LuxClub")
 			);
 
           const mainPage = new MessageEmbed()
-            .setAuthor({ name: 'LavaMusic', iconURL: 'https://media.discordapp.net/attachments/876035356460462090/888434725235097610/20210820_124325.png'})
-            .setThumbnail('https://media.discordapp.net/attachments/876035356460462090/888434725235097610/20210820_124325.png')
+            .setAuthor({ name: 'LuxClub', iconURL: 'https://media.discordapp.net/attachments/900971405477302292/902000220353749062/LOGO_AZUL.png'})
+            .setThumbnail('https://media.discordapp.net/attachments/900971405477302292/902000220353749062/LOGO_AZUL.png')
             .setColor('#303236')
-            .addField('invite lavamusic', `[Here](https://discord.com/api/oauth2/authorize?client_id=${client.user.id}&permissions=36768832&scope=applications.commands%20bot)`, true)
-           message.reply({embeds: [mainPage], components: [row]})
+            .addField('Creator', '[DaLua#7582](https://github.com/uniaodalua)', true)
+            .addField('\u200b',
+                `◢ Lux Club ◤ é uma casa de festa com uma decoração moderna que cativa a todos. Agitada DJ’s de verdade que tocam ao vivo, 100% em tempo real e sincronizado, os gêneros variam de eletrônica a funk, agradando pessoas com diversos gostos musicais. Localizada em San Fierro.`
+            )
     }
 }
