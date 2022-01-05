@@ -3,7 +3,7 @@ const db = require("../../schema/prefix.js");
 module.exports = {
     name: "setprefix",
     category: "Config",
-    description: "Set Custom Prefix",
+    description: "Definir prefixo personalizado",
     args: false,
     usage: "",
     aliases: ["prefix"],
@@ -13,22 +13,22 @@ module.exports = {
     
     const data = await db.findOne({ Guild: message.guildId});
     const pre = await args.join(" ")
-    if (!message.member.permissions.has('MANAGE_GUILD')) return message.reply('You must have `Manage Guild` permission to use this command.');
+    if (!message.member.permissions.has('MANAGE_GUILD')) return message.reply('Você deve ter permissão de `Manage Guild` para usar este comando.');
     if (!pre[0]) {
     const embed = new MessageEmbed()
-        .setDescription("Please give the prefix that you want to set!")
+        .setDescription("Por favor, dê o prefixo que você deseja definir!")
         .setColor(client.embedColor)
       return message.reply({ embeds: [embed] });
     }
     if (pre[1]) {
        const embed = new MessageEmbed()
-        .setDescription("You can not set prefix a double argument")
+        .setDescription("Você não pode definir como prefixo um argumento duplo!")
         .setColor(client.embedColor)
       return message.reply({ embeds: [embed] });
     }
     if (pre[0].length > 3) {
        const embed = new MessageEmbed()
-        .setDescription("You can not send prefix more than 3 characters")
+        .setDescription("Você não pode enviar prefixo com mais de 3 caracteres")
         .setColor(client.embedColor)
       return message.reply({ embeds: [embed] });
     }
