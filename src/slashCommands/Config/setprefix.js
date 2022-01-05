@@ -3,11 +3,11 @@ const db = require("../../schema/prefix.js");
 
 module.exports = {
     name: "setprefix",
-    description: "Set Custom Prefix",
+    description: "Definir prefixo personalizado",
     options: [
     {
       name: "prefix",
-      description: "give me new prefix",
+      description: "me dê um novo prefixo",
       required: true,
       type: "STRING"
 		}
@@ -19,24 +19,24 @@ module.exports = {
         });
    const data = await db.findOne({ Guild: interaction.guildId});
    const pre = interaction.options.getString("prefix");
-   if (!interaction.member.permissions.has('MANAGE_GUILD')) return await interaction.editReply({ ephemeral: true, embeds: [new MessageEmbed().setColor(client.embedColor).setDescription("You must have `Manage Guild` permission to use this command.")]
+   if (!interaction.member.permissions.has('MANAGE_GUILD')) return await interaction.editReply({ ephemeral: true, embeds: [new MessageEmbed().setColor(client.embedColor).setDescription("Você deve ter permissão para `Manage Guild` para usar este comando.")]
     }).catch(() => {});
 
   if (!pre[0]) {
     const embed = new MessageEmbed()
-        .setDescription("Please give the prefix that you want to set")
+        .setDescription("Por favor, dê o prefixo que você deseja definir")
         .setColor(client.embedColor)
       return await interaction.editReply({ embeds: [embed] });
     }
     if (pre[1]) {
        const embed = new MessageEmbed()
-        .setDescription("You can not set prefix a double argument")
+        .setDescription("Você não pode definir como prefixo um argumento duplo")
         .setColor(client.embedColor)
       return await interaction.editReply({ embeds: [embed] });
     }
     if (pre[0].length > 3) {
        const embed = new MessageEmbed()
-        .setDescription("You can not send prefix more than 3 characters")
+        .setDescription("Você não pode enviar prefixo com mais de 3 caracteres")
         .setColor(client.embedColor)
       return await interaction.editReply({ embeds: [embed] });
     }
