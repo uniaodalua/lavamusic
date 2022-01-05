@@ -3,7 +3,7 @@ const { MessageEmbed } = require("discord.js");
 module.exports = {
   	name: "shuffle",
     category: "Music",
-    description: "Shuffle queue",
+    description: "Fila aleatória",
     args: false,
     usage: "",
     permission: [],
@@ -18,7 +18,7 @@ module.exports = {
         if (!player.queue.current) {
             let thing = new MessageEmbed()
                 .setColor("RED")
-                .setDescription("There is no music playing.");
+                .setDescription("Não há música tocando.");
             return message.reply({embeds: [thing]});
         }
         player.queue.shuffle();
@@ -26,7 +26,7 @@ module.exports = {
         const emojishuffle = client.emoji.shuffle;
 
         let thing = new MessageEmbed()
-            .setDescription(`${emojishuffle} Shuffled the queue`)
+            .setDescription(`${emojishuffle} Ordem aleatória da fila`)
             .setColor(client.embedColor)
             .setTimestamp()
         return message.reply({embeds: [thing]}).catch(error => client.logger.log(error, "error"));
