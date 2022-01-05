@@ -4,9 +4,9 @@ module.exports = {
 	name: "resume",
     aliases: ["r"],
     category: "Music",
-    description: "Resume currently playing music",
+    description: "Retomar a música atual",
     args: false,
-    usage: "<Number of song in queue>",
+    usage: "<Número de músicas na fila>",
     permission: [],
     owner: false,
     player: true,
@@ -20,7 +20,7 @@ module.exports = {
         if (!player.queue.current) {
             let thing = new MessageEmbed()
                 .setColor("RED")
-                .setDescription("There is no music playing.");
+                .setDescription("Não há música tocando.");
             return message.reply({embeds: [thing]});
         }
 
@@ -29,7 +29,7 @@ module.exports = {
         if (!player.paused) {
             let thing = new MessageEmbed()
                 .setColor("RED")
-                .setDescription(`${emojiresume} The player is already **resumed**.`)
+                .setDescription(`${emojiresume} O jogador já está **resumed**.`)
                 .setTimestamp()
           return message.reply({embeds: [thing]});
         }
@@ -37,7 +37,7 @@ module.exports = {
         player.pause(false);
 
         let thing = new MessageEmbed()
-            .setDescription(`${emojiresume} **Resumed**\n[${song.title}](${song.uri})`)
+            .setDescription(`${emojiresume} **resumir**\n[${song.title}](${song.uri})`)
             .setColor(client.embedColor)
             .setTimestamp()
         return message.reply({embeds: [thing]});
