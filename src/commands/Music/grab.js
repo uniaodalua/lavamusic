@@ -5,7 +5,7 @@ module.exports = {
     name: "grab",
     aliases: ["save"],
     category: "Music",
-    description: "Grabs And Sends You The Song That Is Playing At The Moment",
+    description: "Mostra a música que está tocando no momento",
     args: false,
     usage: "",
     permission: [],
@@ -20,7 +20,7 @@ module.exports = {
         if (!player.queue.current) {
             let thing = new MessageEmbed()
             .setColor("#FFC942")
-            .setDescription("> There is no music playing.");
+            .setDescription("> Não há música tocando.");
             return message.channel.send({embeds: [thing]});
         }
 
@@ -33,7 +33,7 @@ module.exports = {
 
         let dm = new MessageEmbed()
         .setAuthor({ name: message.author.tag, iconURL: message.author.avatarURL()})
-        .setDescription(`:mailbox_with_mail: \`Check Your Dms!\``)
+        .setDescription(`:mailbox_with_mail: \`Verifique o seu Dms!\``)
         .setColor(client.embedColor)
         .setFooter({text: `Requested By ${message.author.tag}`})
         .setTimestamp()
