@@ -4,7 +4,7 @@ module.exports = {
 	  name: "loop",
     aliases: ['l'],
     category: "Music",
-  	description: "Toggle music loop",
+  	description: "Ativar loop de músicas",
   	args: false,
     usage: "",
     permission: [],
@@ -30,7 +30,7 @@ execute: async (message, args, client, prefix) => {
 			let thing = new MessageEmbed()
 				.setColor(message.client.embedColor)
 				.setTimestamp()
-				.setDescription(`${emojiloop} Loop queue is now **${queueRepeat}**`)
+				.setDescription(`${emojiloop} A fila de loop agora é **${queueRepeat}**`)
 		   return message.reply({embeds: [thing]});
         }
 
@@ -39,7 +39,7 @@ execute: async (message, args, client, prefix) => {
 		let thing = new MessageEmbed()
 			.setColor(message.client.embedColor)
 			.setTimestamp()
-			.setDescription(`${emojiloop} Loop track is now **${trackRepeat}**`)
+			.setDescription(`${emojiloop}A faixa de loop agora é **${trackRepeat}**`)
 		    return message.reply({embeds: [thing]});
     }
 };
